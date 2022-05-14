@@ -16,5 +16,7 @@ class Promotion extends Model
         'end_at',
     ];
 
-
+    public function bookings(){
+      return $this->belongsToMany(Booking::class);
+    }
 }

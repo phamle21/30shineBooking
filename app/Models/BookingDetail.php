@@ -24,4 +24,8 @@ class BookingDetail extends Model
     {
         return $this->hasMany(Service::class);
     }
+
+    public function promotion(){
+        return $this->hasOne(Promotion::class);
+    }
 }
