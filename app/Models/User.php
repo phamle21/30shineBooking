@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\UserRole;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -75,5 +76,20 @@ class User extends Authenticatable
     public function booking()
     {
         return $this->hasMany(Booking::class);
+    }
+
+    public function isAdmin()
+    {
+        return $this->role === UserRole::Admin;
+    }
+
+    public function isAdminStore()
+    {
+        return $this->role === UserRole::Admin_Store;
+    }
+
+    public function roleName()
+    {
+        return UserRole::getKey($this->role);
     }
 }
