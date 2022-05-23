@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BookingDetail extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'service_id',
@@ -22,7 +23,7 @@ class BookingDetail extends Model
 
     public function service()
     {
-        return $this->hasMany(Service::class);
+        return $this->hasOne(Service::class,'id', 'service_id');
     }
 
     public function promotion(){

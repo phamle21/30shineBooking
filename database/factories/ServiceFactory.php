@@ -19,8 +19,8 @@ class ServiceFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->text(),
-            'time' => rand(1,8)*60,// return minute (hour * minute)
-            'price' => $this->faker->numerify('###.###')
+            'time' => rand(1,4)*60,// return minute (hour * minute)
+            'price' => $this->faker->randomNumber(7,false),
         ];
     }
 }

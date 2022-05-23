@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Booking extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'stylist_id',
@@ -26,7 +27,7 @@ class Booking extends Model
 
     public function promotion()
     {
-        return $this->hasOne(Promotion::class);
+        return $this->belongsTo(Promotion::class);
     }
 
     public function rating()
@@ -36,7 +37,7 @@ class Booking extends Model
 
     public function customer()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function stylist()
@@ -49,5 +50,8 @@ class Booking extends Model
         return $this->belongsTo(Store::class);
     }
 
-
+    public function total()
+    {
+        return $this->detail->sum('price');
+    }
 }

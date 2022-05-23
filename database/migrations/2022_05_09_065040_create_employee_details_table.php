@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('experience');
             $table->string('note');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

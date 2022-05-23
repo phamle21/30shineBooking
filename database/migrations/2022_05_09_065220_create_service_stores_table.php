@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id')->nullable();
             $table->unsignedBigInteger('store_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('service_id')

@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('reward_points', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable()->unique();
             $table->unsignedBigInteger('point');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')

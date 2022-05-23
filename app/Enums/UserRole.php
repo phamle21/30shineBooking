@@ -15,4 +15,5 @@ final class UserRole extends Enum
     const Admin = 0;
     const Admin_Store = 1;
     const Customer = 2;
+    const Stylist = 3;
 }

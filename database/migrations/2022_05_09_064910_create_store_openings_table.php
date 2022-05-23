@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('store_id')->nullable();
             $table->string('note');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('store_id')

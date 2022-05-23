@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('service_id')->nullable();
             $table->unsignedBigInteger('booking_id')->nullable();
             $table->double('price');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('service_id')

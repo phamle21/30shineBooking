@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('booking_id')->nullable();
-            $table->unsignedBigInteger('start');
+            $table->unsignedBigInteger('star');
             $table->string('review');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('user_id')
