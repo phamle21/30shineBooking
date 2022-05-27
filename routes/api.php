@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Orion\Facades\Orion;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('bookings', BookingController::class);
+Route::get('/bookings/{id}/cancel', [BookingController::class, 'cancelBooking']);
+
