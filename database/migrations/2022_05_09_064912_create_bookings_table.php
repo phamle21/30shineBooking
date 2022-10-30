@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('store_id')->nullable();
             $table->unsignedBigInteger('promotion_id')->nullable()->default('1');
             $table->double('total');
-            $table->string('status')->default(BookingStatus::Pedding);
+            $table->string('status')->default(BookingStatus::Pending);
             $table->timestamp('booking_at')->useCurrent();
             $table->softDeletes();
             $table->timestamps();
